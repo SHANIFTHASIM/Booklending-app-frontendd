@@ -11,10 +11,10 @@ export async function setToken(authToken: string) {
     name: TOKEN_NAME,
     value: authToken,
     httpOnly: true,
-    sameSite: "lax", // change to "none" if using cross-domain + HTTPS
+    sameSite: "strict",
     secure: process.env.NODE_ENV === "production",
     maxAge: 60 * 60 * 24 * 30, // 30 days
-    path: "/",
+   
      
     });
     console.log("[setToken] Cookie set result:", result);
