@@ -28,7 +28,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:8000/books/api/register/", formData);
+      await axios.post("https://web-production-9f3a.up.railway.app/books/api/register/", formData);
       router.push("/login");
     } catch (err: unknown) {
       if (

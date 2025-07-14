@@ -6,7 +6,7 @@ export async function POST(request: Request) {
   const body = await request.json();
 
   try {
-    const { data } = await axios.post("http://localhost:8000/api/token/", body, {
+    const { data } = await axios.post("https://web-production-9f3a.up.railway.app/api/token/", body, {
       headers: { "Content-Type": "application/json" },
     });
 

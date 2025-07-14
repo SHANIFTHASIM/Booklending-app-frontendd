@@ -1,24 +1,17 @@
-import type { NextConfig } from "next";
-
-const nextConfig = {
+// next.config.js
+module.exports = {
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "localhost",
-        port: "8000",
-        pathname: "/media/books/covers/**",
+        protocol: 'https',
+        hostname: 'web-production-9f3a.up.railway.app',
+        pathname: '/media/**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'web-production-9f3a.up.railway.app',
+        pathname: '/media/**',
       },
     ],
   },
-  async rewrites() {
-    return [
-      {
-        source: "/media/:path*",
-        destination: "http://localhost:8000/media/:path*",
-      },
-    ];
-  },
 };
-
-export default nextConfig;
