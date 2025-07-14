@@ -189,11 +189,16 @@ export default function PageListing() {
             >
               {book.cover_image ? (
                 <Image
-                  src={book.cover_image}
+                  src={
+                    book.cover_image.startsWith('http') || book.cover_image.startsWith('https')
+                      ? book.cover_image
+                      : `${process.env.NEXT_PUBLIC_BACKEND_URL}${book.cover_image}`
+                  }
                   alt={book.title}
                   width={300}
                   height={400}
                   className="w-full h-60 object-cover rounded-lg mb-4"
+                  onError={(e) => console.log("Image load error:", e, book.cover_image)}
                 />
               ) : (
                 <div className="w-full h-60 bg-gray-200 rounded-lg flex items-center justify-center mb-4">
